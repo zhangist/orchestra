@@ -35,7 +35,6 @@
     "koa-convert": "^1.2.0",
     "koa-static": "^3.0.0",
     "minimist": "^1.2.0",
-    "player": "^0.6.1",
     "progress-bar-webpack-plugin": "^1.10.0",
     "react": "^16.2.0",
     "react-custom-scrollbars": "^4.2.1",
@@ -47,7 +46,8 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "socket.io": "^1.7.4",
-    "styled-components": "^2.2.4"
+    "styled-components": "^2.2.4",
+    "web-audio-api": "^0.2.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.3",

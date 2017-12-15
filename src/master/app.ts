@@ -1,5 +1,6 @@
 import * as http from "http";
 import * as minimist from "minimist";
+import * as path from "path";
 import * as socketServer from "socket.io";
 import * as appConfig from "../appConfig";
 
