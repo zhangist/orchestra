@@ -1,7 +1,7 @@
 import * as React from "react";
 import Scrollbars from "react-custom-scrollbars";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter, RouteComponentProps } from "react-router";
 import { renderRoutes } from "react-router-config";
 import { Dispatch } from "redux";
 import { bindActionCreators } from "redux";
@@ -9,9 +9,14 @@ import actions from "../../actions";
 
 import "./app.styl";
 
-class App extends React.PureComponent<any, any> {
+interface IProps {
+  route: any,
+  actions: any,
+}
+
+class App extends React.PureComponent<IProps, any> {
   public render() {
-    const { route } = this.props;
+    const { route, actions } = this.props;
     return (
       <div className="app">
         <div className="header">Header</div>
@@ -25,8 +30,8 @@ class App extends React.PureComponent<any, any> {
   }
 }
 
-function mapStateToProps(state: any) {
-  return state;
+function mapStateToProps(state: any, props: any) {
+  return { route: props.route};
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {

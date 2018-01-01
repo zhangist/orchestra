@@ -14,12 +14,11 @@ const args = minimist(process.argv.slice(2), {
   string: ["masterHost", "masterPort", "clientPort"],
 });
 // master host and port
-const masterHost = args.masterHost || appConfig.masterHost;
-const masterPort = args.masterPort || appConfig.masterPort;
+const masterAddress = args.masterAddress || appConfig.masterAddress;
 // client port
 const clientPort = args.clientPort || appConfig.clientPort;
 // console
-if (!args.masterHost) {
+if (!args.masterAddress) {
   console.log("\x1b[33m%s\x1b[0m\x1b[93m%s\x1b[0m",
     "For temporary master address, use command like this:\r\n",
     "> npm run client -- --masterAddress=[[http://][hostname][:port]] --clientPort=[port]");
@@ -31,7 +30,7 @@ if (!args.masterHost) {
 // main
 const clientServer = socketServer(clientPort);
 console.log(new Date().getTime());
-const client = socketClient(masterHost + ":" + masterPort);
+const client = socketClient(masterAddress);
 // mount events to socket
 socketRoutes(client);
 // client.on("connect", (data: any) => {
@@ -60,6 +59,5 @@ socketRoutes(client);
 
 console.log("\x1b[33m%s%s%s\x1b[0m",
   `* Client listening on port ${clientPort}\r\n`,
-  `* Master host: ${masterHost}\r\n`,
-  `* Master port: ${masterPort}\r\n`,
+  `* Master address: ${masterAddress}\r\n`,
 );
