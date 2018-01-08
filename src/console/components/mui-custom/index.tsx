@@ -1,5 +1,12 @@
-import * as Mui from "material-ui";
-import { withStyles } from "material-ui/styles";
+import MuiAppBar from "material-ui/AppBar";
+import MuiButton from "material-ui/Button";
+import MuiDialog from "material-ui/Dialog";
+import MuiDialogContent from "material-ui/Dialog/DialogContent";
+import MuiIcon from "material-ui/Icon";
+import MuiModal from "material-ui/Modal";
+import MuiToolbar from "material-ui/Toolbar";
+
+import withStyles from "material-ui/styles/withStyles";
 import * as React from "react";
 import styled, { StyledFunction } from "styled-components";
 import Options from "../Options";
@@ -20,7 +27,7 @@ const AppBar = withStyles({
   },
 })((props: any) => {
   return (
-    <Mui.AppBar {...props} classes={{
+    <MuiAppBar {...props} classes={{
       colorPrimary: props.classes.colorPrimary,
     }} />
   );
@@ -35,7 +42,7 @@ const Button = withStyles({
   },
 })((props: any) => {
   return (
-    <Mui.Button {...props} classes={{
+    <MuiButton {...props} classes={{
       root: props.classes.root,
     }} />
   );
@@ -47,7 +54,7 @@ const Dialog = withStyles({
   },
 })((props: any) => {
   return (
-    <Mui.Dialog {...props} classes={{
+    <MuiDialog {...props} classes={{
       fullScreen: props.classes.fullScreen,
     }} />
   );
@@ -60,7 +67,7 @@ const DialogContent = withStyles({
   },
 })((props: any) => {
   return (
-    <Mui.DialogContent {...props} classes={{
+    <MuiDialogContent {...props} classes={{
       root: props.classes.root,
     }} />
   );
@@ -73,7 +80,7 @@ const Icon = withStyles({
   },
 })((props: any) => {
   return (
-    <Mui.Icon {...props} classes={{
+    <MuiIcon {...props} classes={{
       root: props.classes.root,
     }} />
   );
@@ -113,13 +120,13 @@ const ModalPage = withStyles({
   }, innerStyle);
 
   return (
-    <Mui.Modal {...rest} classes={{
+    <MuiModal {...rest} classes={{
       root: props.classes.root,
     }}>
       <div style={style}>
         {props.children ? props.children : null}
       </div>
-    </Mui.Modal>
+    </MuiModal>
   );
 });
 // new
@@ -155,7 +162,7 @@ const Toolbar = withStyles({
   },
 })((props: any) => {
   return (
-    <Mui.Toolbar {...props} classes={{
+    <MuiToolbar {...props} classes={{
       gutters: props.classes.gutters,
       root: props.classes.root,
     }} />

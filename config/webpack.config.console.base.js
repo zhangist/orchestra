@@ -12,7 +12,6 @@ const baseConfig = {
       "react-dom",
       "redux",
       "react-redux",
-      "material-ui",
     ],
   },
   output: {
