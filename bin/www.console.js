@@ -15,7 +15,7 @@ const Koa = require("koa");
 const app = new Koa();
 
 const webapck = require("webpack");
-const webapckConfig = require("../config/webpack.config.console");
+const webapckConfig = require("../config/webpack.config.console.dev");
 const compiler = webapck(webapckConfig);
 
 if (env === "prd") {

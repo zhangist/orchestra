@@ -1,38 +1,38 @@
-import * as React from 'react';
-import { componentWillAppendToBody } from 'react-append-to-body';
-import Scrollbars from 'react-custom-scrollbars';
-import './style.styl';
+import * as React from "react";
+import { componentWillAppendToBody } from "react-append-to-body";
+import Scrollbars from "react-custom-scrollbars";
+import "./style.styl";
 
 // append to body
 const appendComponent = ({ children }: any) => children;
 const AppendComponent = componentWillAppendToBody(appendComponent);
 
 interface IProps {
-  buttons?: [JSX.Element],
-  className?: string,
-  children?: JSX.Element,
-  fullScreen?: boolean,
-  dialogStyle?: object,
-  innerStyle?: object,
-  topStyle?: object,
-  contentStyle?: object,
-  maskStyle?: object,
+  buttons?: [JSX.Element];
+  className?: string;
+  children?: JSX.Element;
+  fullScreen?: boolean;
+  dialogStyle?: object;
+  innerStyle?: object;
+  topStyle?: object;
+  contentStyle?: object;
+  maskStyle?: object;
 }
 
 class Dialog extends React.PureComponent<IProps, any> {
-  static defaultProps = {
+  private static defaultProps = {
     buttons: [],
-    className: '',
     children: null,
-    fullScreen: false,
-    dialogStyle: {},
-    innerStyle: {},
-    topStyle: {},
+    className: "",
     contentStyle: {},
+    dialogStyle: {},
+    fullScreen: false,
+    innerStyle: {},
     maskStyle: {},
+    topStyle: {},
   };
 
-  renderDialog(styles: any) {
+  public renderDialog(styles: any) {
     const {
       buttons,
       className,
@@ -48,7 +48,7 @@ class Dialog extends React.PureComponent<IProps, any> {
     return (
       <AppendComponent>
         <div
-          className={`sl-dialog${className ? ` ${className}` : ''}${fullScreen ? ' c-full-screen' : ''}`}
+          className={`sl-dialog${className ? ` ${className}` : ""}${fullScreen ? " c-full-screen" : ""}`}
           style={(Object as any).assign({}, dialogStyle, styles.dialogStyle)}
         >
           <div className="c-inner" style={(Object as any).assign({}, innerStyle, styles.innerStyle)}>
@@ -67,7 +67,7 @@ class Dialog extends React.PureComponent<IProps, any> {
     );
   }
 
-  render() {
+  public render() {
     return this.renderDialog({});
   }
 }
