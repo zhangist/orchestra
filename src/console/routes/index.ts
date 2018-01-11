@@ -1,22 +1,22 @@
-import App from "./common/app";
-import Default from "./site/default";
-import Login from "./site/login";
+import Root from './common/root'
+import Default from './site/default'
+import Login from './site/login'
 
 const routes = [
   {
-    component: App,
+    component: Root,
     routes: [
       {
         component: Default,
         exact: true,
-        path: "/",
+        path: '/',
       },
       {
         component: Login,
-        path: "/login",
+        path: '/login',
       },
     ],
   },
-];
+]
 
-export default routes;
+export default routes

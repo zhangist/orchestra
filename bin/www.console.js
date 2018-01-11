@@ -14,13 +14,12 @@ const consolePort = parseInt(args.consolePort) || 8088;
 const Koa = require("koa");
 const app = new Koa();
 
-const webapck = require("webpack");
-const webapckConfig = require("../config/webpack.config.console.dev");
-const compiler = webapck(webapckConfig);
-
 if (env === "prd") {
   // app.use(serve(__dirname + "../build/"));
 } else {
+  const webapck = require("webpack");
+  const webapckConfig = require("../config/webpack.config.console.dev");
+  const compiler = webapck(webapckConfig);
   // Put to the end
   // webpack dev middleware
   app.use(convert(devMiddleware(compiler, {

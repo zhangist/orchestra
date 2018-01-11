@@ -16,8 +16,9 @@
     "build:7": "npm run build:master && npm run build:client && npm run build:console",
     "master": "node build/master.js",
     "client": "node build/client.js",
-    "console": "node bin/www.console.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "console": "node bin/www.console.js --env=prd",
+    "dev": "node bin/www.console.js -- --env=dev",
+    "analyze": "webpack --config config/webpack.config.console.analyze.js --progress -p"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +38,7 @@
     "@types/redux-thunk": "^2.1.0",
     "@types/socket.io": "^1.4.31",
     "@types/socket.io-client": "^1.4.32",
+    "antd": "^3.1.1",
     "koa": "^2.4.1",
     "koa-convert": "^1.2.0",
     "koa-static": "^3.0.0",
@@ -72,6 +74,7 @@
     "stylus-loader": "^3.0.1",
     "ts-loader": "^3.2.0",
     "typescript": "^2.6.2",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-bundle-analyzer": "^2.9.2"
   }
 }

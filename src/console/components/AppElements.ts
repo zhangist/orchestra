@@ -1,39 +1,41 @@
-import * as React from "react";
-import styled, { StyledFunction } from "styled-components";
-import Options from "./Options";
-import Themes from "./Themes";
+import * as React from 'react'
+import styled, { StyledFunction } from 'styled-components'
+import Options from './Options'
 
-const themeOptions = Options.theme;
+const theme = Options.theme
 
-interface IProps {
-  size?: string;
-}
+// App
+const AppDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
+const App = AppDiv`
+  height: 100%;
+`
 
 // Header
-const HeaderDiv: StyledFunction<IProps & React.HTMLProps<HTMLDivElement>> = styled.div;
+const HeaderDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
 const Header = HeaderDiv`
-  height: ${Themes.header.size[themeOptions.size]}px;
+  height: ${theme.header.height};
   background: #fff;
   position: absolute;
   top: 0px;
   right: 0px;
   left: 0px;
-`;
+`
 
 // Header
-const ContentDiv: StyledFunction<IProps & React.HTMLProps<HTMLDivElement>> = styled.div;
+const ContentDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
 const Content = ContentDiv`
   color: #fff;
   background: #333;
   position: absolute;
-  top: ${Themes.header.size[themeOptions.size]}px;
+  top: ${theme.content.top};
   right: 0px;
   bottom: 0px;
   left: 0px;
-`;
+`
 
 export {
+  App,
   Header,
   Content,
-};
-export *  from "../components/mui-custom";
+}
+export *  from '../components/mui'
