@@ -5,7 +5,9 @@ import Options from '../../Options'
 
 const theme = Options.theme
 
-// extend from Mui.Button
+/**
+ * extend from Mui.Button
+ */
 const Button = withStyles({
   root: {
     borderRadius: '0px',

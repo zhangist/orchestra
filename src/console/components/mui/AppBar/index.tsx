@@ -5,7 +5,9 @@ import Options from '../../Options'
 
 const theme = Options.theme
 
-// extend from Mui.AppBar
+/**
+ * extend from Mui.AppBar
+ */
 const AppBar = withStyles({
   colorPrimary: {
     backgroundColor: '#fff',

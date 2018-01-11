@@ -14,9 +14,13 @@ import {
   AppBar,
   Button,
   Content,
+  FlexHorizontal,
+  FlexVertical,
   Header,
   Icon,
   IconText,
+  Menu,
+  MenuItem,
   Modal,
   ModalContent,
   ModalFooter,
@@ -39,12 +43,22 @@ class Root extends React.Component<IProps, any> {
   constructor(props: IProps) {
     super(props)
     this.state = {
+      anchorEl: null,
       showConnectModal: false,
     }
   }
 
+  public handleClick(event: any) {
+    this.setState({ anchorEl: event.currentTarget })
+  }
+
+  public handleClose() {
+    this.setState({ anchorEl: null })
+  }
+
   public render() {
     const {
+      anchorEl,
       showConnectDialog,
     } = this.state
     const {
@@ -57,20 +71,31 @@ class Root extends React.Component<IProps, any> {
       <App>
         <AppBar>
           <Toolbar>
-            <Button
-              onClick={() => history.push('/')}
-            >
+            <Button onClick={() => history.push('/')}>
               HOME
             </Button>
-            <Button
-              onClick={() => this.setState({ showConnectModal: true })}
-            >
+            <Button onClick={() => this.setState({ showConnectModal: true })}>
               {socket.id ? 'Connected' : 'Connect'}
             </Button>
             <Button
-              style={{ float: 'right' }}
-              onClick={() => this.setState({ showConnectModal: true })}
+              aria-owns={anchorEl ? 'menu-demo' : null}
+              aria-haspopup="true"
+              onClick={(e: any) => this.handleClick(e)}
             >
+              Open Menu
+            </Button>
+            <Menu
+              id="menu-demo"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={() => this.handleClose()}
+            >
+              <MenuItem onClick={() => this.handleClose()}>Profile</MenuItem>
+              <MenuItem onClick={() => this.handleClose()}>My account</MenuItem>
+              <MenuItem onClick={() => this.handleClose()}>Logout</MenuItem>
+            </Menu>
+            <FlexHorizontal />
+            <Button onClick={() => this.setState({ showConnectModal: true })}>
               {socket.id ? 'Connected' : 'Connect'}
             </Button>
           </Toolbar>
@@ -109,7 +134,6 @@ class Root extends React.Component<IProps, any> {
         </ModalHeader>
         <ModalContent>
           <div style={{
-            backgroundColor: '#ccc',
             height: '800px',
             maxWidth: '600px',
             outline: 'none',

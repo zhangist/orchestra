@@ -4,13 +4,17 @@ import Options from './Options'
 
 const theme = Options.theme
 
-// App
+/**
+ * App
+ */
 const AppDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
 const App = AppDiv`
   height: 100%;
 `
 
-// Header
+/**
+ * Header
+ */
 const HeaderDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
 const Header = HeaderDiv`
   height: ${theme.header.height};
@@ -21,7 +25,9 @@ const Header = HeaderDiv`
   left: 0px;
 `
 
-// Header
+/**
+ * Content
+ */
 const ContentDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
 const Content = ContentDiv`
   color: #fff;
@@ -33,9 +39,25 @@ const Content = ContentDiv`
   left: 0px;
 `
 
+/**
+ * FlexHorizontal
+ */
+const FlexHorizontal = styled.div`
+  flex: 1 1 auto;
+`
+
+/**
+ * FlexHorizontal
+ */
+const FlexVertical = styled.div`
+  flex: 1 1 100%;
+`
+
 export {
   App,
   Header,
   Content,
+  FlexHorizontal,
+  FlexVertical,
 }
 export *  from '../components/mui'

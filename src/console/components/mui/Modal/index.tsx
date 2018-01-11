@@ -1,12 +1,14 @@
 import MuiModal from 'material-ui/Modal'
 import withStyles from 'material-ui/styles/withStyles'
 import * as React from 'react'
-import styled, { StyledFunction } from 'styled-components'
+import styled from 'styled-components'
 import Options from '../../Options'
 
 const theme = Options.theme
 
-// extend from Mui.Modal
+/**
+ * extend from Mui.Modal
+ */
 const Modal = withStyles({
   root: {
     outline: 'none',
@@ -38,9 +40,10 @@ const Modal = withStyles({
   )
 })
 
-// (new) ModalHeader
-const ModalHeaderDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
-const ModalHeader = ModalHeaderDiv`
+/**
+ * (new) ModalHeader
+ */
+const ModalHeader = styled.div`
   flex: 0 0 ${theme.modal.header.height};
 `
 // (new) ModalContent
@@ -48,11 +51,13 @@ const ModalContent = styled.div`
   width: 100%;
   flex: 1 1 100%;
   overflow: auto;
+  background-color: #ccc;
   position: relative;
 `
-// (new) ModalFooter
-const ModalFooterDiv: StyledFunction<React.HTMLProps<HTMLDivElement>> = styled.div
-const ModalFooter = ModalFooterDiv`
+/**
+ * (new) ModalFooter
+ */
+const ModalFooter = styled.div`
   flex: 0 0 ${theme.modal.footer.height};
 `
 

@@ -5,7 +5,9 @@ import Options from '../../Options'
 
 const theme = Options.theme
 
-// extend from Mui.Toolbar
+/**
+ * extend from Mui.Toolbar
+ */
 const Toolbar = withStyles({
   gutters: {
     'padding-left': '0',

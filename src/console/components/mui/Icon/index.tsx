@@ -6,7 +6,9 @@ import Options from '../../Options'
 
 const theme = Options.theme
 
-// extend from Mui.Icon
+/**
+ * extend from Mui.Icon
+ */
 const Icon = withStyles({
   root: {
     fontSize: '16px',
@@ -19,7 +21,9 @@ const Icon = withStyles({
   )
 })
 
-// (new) IconText
+/**
+ * (new) IconText
+ */
 interface IconTextProps {
   left?: boolean
   right?: boolean
