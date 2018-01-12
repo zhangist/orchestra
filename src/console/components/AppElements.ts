@@ -60,4 +60,4 @@ export {
   FlexHorizontal,
   FlexVertical,
 }
-export *  from '../components/mui'
+export * from '../components/mui'

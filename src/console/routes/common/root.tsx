@@ -7,8 +7,8 @@ import { withRouter } from 'react-router'
 import { renderRoutes } from 'react-router-config'
 import { Dispatch } from 'redux'
 import { bindActionCreators } from 'redux'
+import * as logger from '../../../lib/logger'
 import actions from '../../actions'
-import log from '../../common/log'
 import {
   App,
   AppBar,
@@ -109,7 +109,7 @@ class Root extends React.Component<IProps, any> {
   }
 
   private connect() {
-    log('connected')
+    logger.print('connected')
   }
 
   private renderConnectModal() {
