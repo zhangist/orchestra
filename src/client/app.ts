@@ -1,5 +1,5 @@
 import * as minimist from 'minimist'
-import * as socketServer from 'socket.io'
+// import * as socketServer from 'socket.io'
 import * as socketClient from 'socket.io-client'
 import * as appConfig from '../appConfig'
 import socketRoutes from './socketRoutes'
@@ -28,9 +28,9 @@ if (!args.masterAddress) {
 }
 
 // main
-const clientServer = socketServer(clientPort)
+// const clientServer = socketServer(clientPort)
 console.log(new Date().getTime())
-const client = socketClient(masterAddress)
+const client = socketClient.connect(masterAddress)
 // mount events to socket
 socketRoutes(client)
 // client.on('connect', (data: any) => {
